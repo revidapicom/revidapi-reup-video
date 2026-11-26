@@ -10,6 +10,10 @@
 6. **Lồng giọng** bằng thư viện giọng RevidAPI. Mỗi đoạn đọc riêng, khoảng lặng được rút cho liền mạch, không chèn im lặng nhân tạo.
 7. **Dựng video dọc 1080x1920**: Ken Burns, phụ đề theo cụm, chữ lớn trên hình, tiếng vút khi chuyển cảnh, nhạc nền (tuỳ chọn).
 
+![Quy trình reup](docs/quy-trinh.svg)
+
+> **Cần khoá API RevidAPI.** Công cụ chỉ chạy qua `https://revidapi.com/v1` và kiểm khoá trước mọi lệnh. Không có chế độ chạy không khoá hay dùng nhà cung cấp khác. Lấy khoá ở [Cài đặt](https://revidapi.com/dashboard/settings).
+
 ![Toàn bộ một video mẫu 68 giây, 12 ô rải đều](docs/toan-bo.jpg)
 
 *Toàn bộ video mẫu cắt thành một khung (`phan-tich/toan-bo.jpg`, 12 ô rải đều). Nhìn một ảnh là thấy phong cách cả bài: bố cục, màu, chữ, nhịp cảnh.*
@@ -18,17 +22,19 @@ Mục đích là học **công thức** của video mẫu, không chép hình, n
 
 ## Cài đặt
 
-Cần Python 3.10+ và ffmpeg (`brew install ffmpeg` / `apt install ffmpeg` / `winget install ffmpeg`).
+Hướng dẫn từng bước cho **macOS, Windows và VPS Linux**: [docs/CAI-DAT.md](docs/CAI-DAT.md).
+
+Tóm tắt: cần Python 3.10+ và ffmpeg (`brew install ffmpeg` / `apt install ffmpeg` / `winget install Gyan.FFmpeg`).
 
 ```bash
-git clone https://github.com/Revidapi-com/revidapi-reup-video
+git clone https://github.com/revidapicom/revidapi-reup-video
 cd revidapi-reup-video
 pip install -e .
 ```
 
 ## Khoá API
 
-Lấy khoá ở https://revidapi.com/dashboard, rồi chọn **một** trong hai cách:
+Lấy khoá ở https://revidapi.com/dashboard/settings, rồi chọn **một** trong hai cách:
 
 ```bash
 # Cách 1: file riêng, chỉ bạn đọc được

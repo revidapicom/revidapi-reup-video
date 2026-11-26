@@ -56,6 +56,20 @@ def so_du() -> Any:
     return _goi("GET", "/account")
 
 
+def kiem_khoa() -> dict:
+    """Bắt buộc: công cụ chỉ chạy với khoá RevidAPI còn hiệu lực."""
+    try:
+        kq = so_du()
+    except LoiAPI as e:
+        if "HTTP 401" in str(e) or "HTTP 403" in str(e):
+            raise LoiAnToan("Khoá RevidAPI không hợp lệ hoặc đã bị thu hồi. Lấy khoá mới ở "
+                            "https://revidapi.com/dashboard/settings") from None
+        raise
+    if not isinstance(kq, dict):
+        raise LoiAnToan("Không xác thực được khoá RevidAPI.")
+    return kq
+
+
 # ---------- tải video ----------
 NEN_TANG = {"tiktok": "/tiktok/download", "douyin": "/douyin/download", "instagram": "/instagram/download",
             "facebook": "/facebook/download"}

@@ -183,6 +183,8 @@ def main(argv=None) -> int:
 
     args = ap.parse_args(argv)
     try:
+        if args.lenh != "cai-hieu-ung":
+            api.kiem_khoa()  # mọi lệnh đều cần khoá RevidAPI hợp lệ, kể cả phân tích 0 credit
         if args.lenh == "chay":
             chay(args)
         elif args.lenh == "dung":

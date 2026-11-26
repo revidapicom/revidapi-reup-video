@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 300" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="960" height="300" fill="#f7f8f6"/>
+  <text x="24" y="38" font-size="20" font-weight="700" fill="#1d2b22">reup chay &lt;link hoặc file.mp4&gt;</text>
+  <g font-size="14">
+    <g transform="translate(24,70)"><rect width="160" height="92" rx="10" fill="#fff" stroke="#c9d3cc"/><text x="14" y="28" font-weight="700" fill="#1d2b22">1. Tải video</text><text x="14" y="52" fill="#4a5a50">API tải RevidAPI</text><text x="14" y="74" fill="#2f9e44">tốn credit nếu là link</text></g>
+    <g transform="translate(208,70)"><rect width="160" height="92" rx="10" fill="#fff" stroke="#c9d3cc"/><text x="14" y="28" font-weight="700" fill="#1d2b22">2. Phân tích</text><text x="14" y="52" fill="#4a5a50">cắt cảnh, Whisper,</text><text x="14" y="74" fill="#4a5a50">đo nhịp — trên máy</text></g>
+    <g transform="translate(392,70)"><rect width="160" height="92" rx="10" fill="#fff" stroke="#c9d3cc"/><text x="14" y="28" font-weight="700" fill="#1d2b22">3. Kịch bản AI</text><text x="14" y="52" fill="#4a5a50">giữ cấu trúc mẫu,</text><text x="14" y="74" fill="#4a5a50">nội dung mới</text></g>
+    <g transform="translate(576,70)"><rect width="160" height="92" rx="10" fill="#fff8e6" stroke="#e0b44a"/><text x="14" y="28" font-weight="700" fill="#1d2b22">Cổng duyệt</text><text x="14" y="52" fill="#4a5a50">báo ước tính credit,</text><text x="14" y="74" fill="#4a5a50">chờ bạn --dong-y</text></g>
+    <g transform="translate(760,70)"><rect width="176" height="92" rx="10" fill="#fff" stroke="#c9d3cc"/><text x="14" y="28" font-weight="700" fill="#1d2b22">4. Giọng + dựng</text><text x="14" y="52" fill="#4a5a50">TTS RevidAPI, phụ đề,</text><text x="14" y="74" fill="#4a5a50">mp4 dọc 1080×1920</text></g>
+  </g>
+  <g stroke="#7d8c83" stroke-width="2" fill="none"><path d="M186 116h18M370 116h18M554 116h18M738 116h18"/></g>
+  <rect x="24" y="196" width="912" height="80" rx="10" fill="#eaf5ec" stroke="#b8dcc0"/>
+  <text x="44" y="228" font-size="15" font-weight="700" fill="#1d2b22">Khoá RevidAPI là bắt buộc</text>
+  <text x="44" y="254" font-size="14" fill="#4a5a50">Mỗi lệnh kiểm khoá với https://revidapi.com/v1 trước khi chạy. Khoá sai hoặc đã thu hồi thì công cụ dừng ngay, không làm gì cả.</text>
+</svg>
