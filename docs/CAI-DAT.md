@@ -85,3 +85,7 @@ reup so-du
 | `Khoá có ký tự lạ` | Khoá bị dán thừa dấu cách hoặc xuống dòng. Ghi lại file bằng `printf '%s'`. |
 | Báo hết credit / không đủ số dư | Nạp thêm ở revidapi.com rồi chạy lại. |
 | `ffmpeg: command not found` | Chưa cài ffmpeg, hoặc chưa mở lại cửa sổ dòng lệnh sau khi cài. |
+| `pip install` chạy rất lâu, đang "Building wheel for opencv" | pip đang biên dịch opencv 5.x từ mã nguồn. Bản hiện tại đã ghim `opencv-python-headless<5`; nếu cài từ bản cũ của repo, chạy `git pull` rồi `pip install -e .` lại. |
+| `module 'cv2' has no attribute 'CascadeClassifier'` | Máy đang có opencv 5. Chạy `pip install "opencv-python-headless>=4.8,<5"`. |
+| `TypeError: ... unexpected keyword argument 'metadata_errors'` khi bóc lời | Thư viện `av` 19 không hợp với faster-whisper. Chạy `pip install "av>=11,<19"`. |
+| `claude mcp list` không thấy `revidapi` | Chạy lệnh `claude mcp add` ở README mục "Dùng với Claude Code + MCP RevidAPI", trong đúng thư mục repo. |

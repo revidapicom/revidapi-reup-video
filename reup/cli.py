@@ -12,7 +12,7 @@ from .an_toan import LoiAnToan, che, kiem_url_media, ten_an_toan, trong_thu_muc
 
 CREDIT_1K_KY_TU = 15  # giọng đọc, theo bảng giá công khai
 CREDIT_ANH = 18
-CREDIT_VIDEO = 23
+CREDIT_VIDEO = 45  # kling-2.5-turbo 720p 5s; model khác thì đọc giá thật ở GET /v1/video/models
 
 
 def _in(*a):
@@ -149,7 +149,7 @@ def main(argv=None) -> int:
     c.add_argument("--ten", default="du-an")
     c.add_argument("--yeu-cau", help="chủ đề/nội dung mới; bỏ trống = viết lại tương tự")
     c.add_argument("--giay", type=int, default=60)
-    c.add_argument("--model", default="gpt-5.5", help="model viết kịch bản")
+    c.add_argument("--model", default="gpt-6-luna", help="model viết kịch bản")
     c.add_argument("--whisper", default="small")
     c.add_argument("--giong", type=int, default=9055, help="voice_id (reup giong-list)")
     c.add_argument("--toc-do", type=float, default=1.0)
@@ -157,7 +157,7 @@ def main(argv=None) -> int:
                    help="goc = theo phong cách video gốc: cảnh có người vẽ lại bằng AI, cảnh khác giữ frame (mặc định)")
     c.add_argument("--video-ai", action="store_true", help="cảnh có người: biến ảnh AI thành video AI")
     c.add_argument("--model-anh", default="gpt-image-2")
-    c.add_argument("--model-video", default="veo3.1-lite")
+    c.add_argument("--model-video", default="kling-2.5-turbo")
     c.add_argument("--nhac", help="file nhạc nền bạn có quyền dùng")
     c.add_argument("--hieu-ung", help="auto = hiệu ứng máy quay cho cảnh có người; hoặc file kế hoạch .json")
     c.add_argument("--dong-y", action="store_true", help="bỏ qua cổng duyệt, tiêu credit luôn")
@@ -166,8 +166,8 @@ def main(argv=None) -> int:
     d.add_argument("du_an", help="thư mục dự án")
     for a, k in [("--giong", dict(type=int, default=9055)), ("--toc-do", dict(type=float, default=1.0)),
                  ("--hinh", dict(choices=["goc", "frame", "ai", "nen"], default="goc")),
-                 ("--model-anh", dict(default="gpt-image-2")), ("--model-video", dict(default="veo3.1-lite")),
-                 ("--model", dict(default="gpt-5.5")), ("--nhac", {}), ("--hieu-ung", {})]:
+                 ("--model-anh", dict(default="gpt-image-2")), ("--model-video", dict(default="kling-2.5-turbo")),
+                 ("--model", dict(default="gpt-6-luna")), ("--nhac", {}), ("--hieu-ung", {})]:
         d.add_argument(a, **k)
     d.add_argument("--video-ai", action="store_true")
     d.add_argument("--dong-y", action="store_true", required=True)

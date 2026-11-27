@@ -101,6 +101,38 @@ Kết quả nằm trong `reup-ra/<ten>/`:
 
 Lệnh `chay` luôn dừng lại báo ước tính trước khi đọc giọng, trừ khi bạn thêm `--dong-y`.
 
+## Dùng với Claude Code + MCP RevidAPI
+
+Repo có sẵn skill `.claude/skills/reup-video/SKILL.md`. Mở Claude Code **trong thư mục repo** là skill tự nạp. Claude sẽ:
+
+1. chạy `reup phan-tich`, xem frame, viết bảng phân tích;
+2. viết kịch bản rồi dừng chờ bạn duyệt;
+3. tạo ảnh và video AI cho từng cảnh qua MCP RevidAPI (`tao_anh`, `tao_video` với `kling-2.5-turbo` hoặc `grok-i2v`), hoặc để `reup dung --video-ai` tự làm;
+4. dựng video và báo số credit đã tiêu thật.
+
+Nối MCP RevidAPI một lần. Lệnh dưới đọc khoá từ file nên khoá không hiện trên màn hình:
+
+```bash
+claude mcp add --transport http revidapi https://mcp.revidapi.com/mcp \
+  --header "Authorization: Bearer $(cat ~/.revidapi/khoa)"
+claude mcp list    # thấy revidapi ✓ Connected là xong
+```
+
+Windows (PowerShell):
+
+```powershell
+claude mcp add --transport http revidapi https://mcp.revidapi.com/mcp --header "Authorization: Bearer $(Get-Content $HOME\.revidapi\khoa)"
+```
+
+Rồi nói với Claude, ví dụ: *"Làm lại video này cho quán cà phê của tôi: <link TikTok>"*.
+
+Model video AI (`--model-video`, mặc định `kling-2.5-turbo`). Giá bên dưới là giá tham khảo, giá thật xem ở `GET https://revidapi.com/v1/video/models`:
+
+| Model | Mức rẻ nhất | Credit |
+|---|---|---|
+| `kling-2.5-turbo` | 720p, 5 giây | ~45 |
+| `grok-i2v` | 480p, 6 giây | ~53 |
+
 ## Hiệu ứng máy quay (tuỳ chọn, 0 credit)
 
 Dùng bộ [claude-video-effects](https://github.com/Vibha-Ramprakash/claude-video-effects) (MIT, Vibha Ramprakash). Bộ này nhận diện khuôn mặt bằng MediaPipe rồi phóng, đẩy hoặc rọi sáng theo khuôn mặt.
